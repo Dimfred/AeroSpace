@@ -11,6 +11,7 @@ struct MenuBarLabel: View {
 
     let hStackSpacing = CGFloat(6)
     let itemSize = CGFloat(40)
+    let iconSize = CGFloat(30)
     let itemBorderSize = CGFloat(3)
     let itemCornerRadius = CGFloat(6)
 
@@ -42,6 +43,7 @@ struct MenuBarLabel: View {
         return HStack(spacing: hStackSpacing) {
             let style = style ?? viewModel.experimentalUISettings.displayStyle
             switch style {
+                case .icon: icon
                 case .monospacedText: getText(for: .monospaced)
                 case .systemText: getText(for: .default)
                 case .squares: squares
@@ -85,6 +87,15 @@ struct MenuBarLabel: View {
                 modeSeparator(with: .monospaced)
             }
         }
+    }
+
+    private var icon: some View {
+        Image(systemName: "square.grid.2x2")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .symbolRenderingMode(.monochrome)
+            .foregroundStyle(finalColor)
+            .frame(width: iconSize, height: iconSize)
     }
 
     private func otherWorkspaces(with otherWorkspaces: [WorkspaceViewModel]) -> some View {

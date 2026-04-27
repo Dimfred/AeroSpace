@@ -20,6 +20,7 @@ enum MenuBarStyle: String, CaseIterable, Identifiable, Equatable, Hashable {
     case monospacedText
     case systemText
     case squares
+    case icon
     case i3
     case i3Ordered
     var id: String { rawValue }
@@ -28,6 +29,7 @@ enum MenuBarStyle: String, CaseIterable, Identifiable, Equatable, Hashable {
             case .monospacedText: "Monospaced font"
             case .systemText: "System font"
             case .squares: "Square images"
+            case .icon: "Icon only"
             case .i3: "i3 style grouped"
             case .i3Ordered: "i3 style ordered"
         }
